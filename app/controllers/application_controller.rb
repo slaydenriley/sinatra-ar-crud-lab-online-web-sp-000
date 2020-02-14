@@ -21,6 +21,10 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
+  get "/articles/:id" do
+    @article = params[:id]
+  end
+
   post "/articles" do
     @article = Article.create(params)
     redirect to "/articles/#{ @article.id }"
